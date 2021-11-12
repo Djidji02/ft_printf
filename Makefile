@@ -6,7 +6,7 @@
 #    By: snadji-h <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 13:14:03 by snadji-h          #+#    #+#              #
-#    Updated: 2021/11/12 14:02:34 by snadji-h         ###   ########.fr        #
+#    Updated: 2021/11/12 15:53:45 by snadji-h         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ${NAME}:	${OBJS}
 			ar cr ${NAME} ${OBJS} 
 
 clean:
-			${RM} ${OBJS} ${OBJSBONUS}
+			${RM} ${OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
