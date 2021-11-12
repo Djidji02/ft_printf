@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snadji-h <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 18:40:42 by snadji-h          #+#    #+#             */
-/*   Updated: 2021/11/12 12:16:04 by snadji-h         ###   ########.fr       */
+/*   Created: 2021/11/08 15:00:21 by snadji-h          #+#    #+#             */
+/*   Updated: 2021/11/11 18:00:10 by snadji-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 #include "ft_printf.h"
 
-int	ft_strlen(char *s)
+int	ft_hex_ptr(void *ptr, char *base)
 {
-	int	i;
+	int				i;
+	unsigned long	nbr;
+	char			tab[1000];
+	int				total;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	total = 0;
+	nbr = (unsigned long) ptr;
+	total += write(1, "0x", 2);
+	if (nbr == 0)
+		total += write(1, base, 1);
+	while (nbr != 0)
+	{
+		tab[i++] = base[nbr % 16];
+		nbr = nbr / 16;
+	}
+	while (i != 0)
+		total += write(1, &tab[i-- - 1], 1);
+	return (total);
 }
-
-int	ft_putstr(char *s)
+/*
+#include <stdio.h>
+int main()
 {
-	if (s == 0)
-		s = "(null)";
-	return (write(1, s, ft_strlen(s)));
-}
+	ft_hexbase(31, "0123456789ABCDEF");
+}*/
