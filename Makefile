@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+
 SRCS		= ft_printf.c ft_putchar.c ft_putstr.c ft_hex.c ft_hex_ptr.c ft_dec.c ft_udec.c
 
 OBJS		= ${SRCS:.c=.o}
